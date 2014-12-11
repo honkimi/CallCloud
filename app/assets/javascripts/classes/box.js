@@ -42,8 +42,8 @@ Box.prototype = {
   },
   draw: function() {
     // bring to front of rect.
-    //for (var i = this.children.length - 1; i >= 0; i--) {
-    for (var i = 0; i < this.children.length; i++) {
+    for (var i = this.children.length - 1; i >= 0; i--) {
+    //for (var i = 0; i < this.children.length; i++) {
       this.children[i].draw();
     }
     if (this.myparent == null) {

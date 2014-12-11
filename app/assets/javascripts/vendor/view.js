@@ -44,10 +44,11 @@ TextView.prototype  = {
     }
   },
   drawText: function(clicked) {
-    if (this.color == undefined) {
-       this.color = "black"
-    }
-
+    if (!this.hasEvent || this.text == "--") {
+       this.color = "#868C8E";
+    } else if (this.color == undefined) {
+       this.color = "black";
+    } 
     this.canvas.drawText({
         fillStyle: this.color,
         strokeStyle: this.color,
@@ -98,8 +99,11 @@ ArrowView.prototype = {
       arrowRadius: 15,
       arrowAngle: 60,
       x1: this.x1, y1: this.y1,
-      x2: this.x2, y2: this.y2,
-    });
+      x2: this.x1, y2: this.y1,
+    }).animateLayer(this.name, {
+      x2: this.x2,
+      y2: this.y2
+    }, 1000);
   } 
 }
 
@@ -114,18 +118,18 @@ var ImageView = function(x, y, size, name, group) {
 
 ImageView.prototype = {
   drawAdd: function(clicked) {
-    this.draw();
-    var addText = new TextView("+", this.x, this.y, this.name, 22,clicked , this.group, "white");
+    this.draw('img/circle.png');
+    var addText = new TextView("+", this.x, this.y, this.name, 22,clicked , this.group, "black");
     addText.drawText(clicked);
   },
   drawDel: function(clicked) {
-    this.draw();
-    var delText = new TextView("-", this.x, this.y, this.name, 22, clicked , this.group, "white");
+    this.draw('img/circle_red.png');
+    var delText = new TextView("-", this.x, this.y, this.name, 22, clicked , this.group, "red");
     delText.drawText(clicked);
   }, 
-  draw: function() {
+  draw: function(imgUrl) {
     this.canvas.drawImage({
-      source: 'img/circle.png',
+      source: imgUrl,
       x: this.x, y: this.y,
       width: this.size, height: this.size,
       groups: [this.group]
