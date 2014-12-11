@@ -22,7 +22,7 @@ class TwilioController < ApplicationController
     xml_str = Twilio::TwiML::Response.new do |r|
 #      begin
         raise if @tel.nil?
-        say_word = @tel.get_second_action_message(params[:Digits] - 1)
+        say_word = @tel.get_second_action_message(params[:Digits].to_i - 1)
 
         if say_word =~ /^[\+0-9]+$/
           # tel number
@@ -31,7 +31,7 @@ class TwilioController < ApplicationController
           end
         else
           # say
-          r.Gather timeout: 30, finishOnKey: '#', action: action_url(@tel.id, params[:Digits] - 1), method: 'GET' do |gather|
+          r.Gather timeout: 30, finishOnKey: '#', action: action_url(@tel.id, params[:Digits].to_i - 1), method: 'GET' do |gather|
             gather.Say say_word, language: "ja-jp"
           end
         end
@@ -49,7 +49,7 @@ class TwilioController < ApplicationController
     xml_str = Twilio::TwiML::Response.new do |r|
       begin
         r.Dial :callerId => @tel.twilio_phone.number do |d|
-          d.Number TwilioClient.to_i18n_number(@tel.get_second_action_phone_number(params[:action_id], params[:Digits] - 1))
+          d.Number TwilioClient.to_i18n_number(@tel.get_second_action_phone_number(params[:action_id], params[:Digits].to_i - 1))
         end
       rescue => e
         p e.message
