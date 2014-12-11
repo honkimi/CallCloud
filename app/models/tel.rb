@@ -21,7 +21,7 @@ class Tel < ActiveRecord::Base
     str = ""
     return json['actions'][idx]['action'] if json['actions'][idx]['action'] != "--"
 
-    json['actions'][idx]['children'].each do |child|
+    json['actions'][idx]['children'].each do |action|
       str << action['name']
       str << 'へのお問い合わせは'
       str << han_to_zen(action['number'])
