@@ -12,7 +12,7 @@ var TextView = function(text, baseX, baseY, name, fontSize, hasEvent, group, col
   this.canvas = $('canvas')
 };
 TextView.prototype  = {
-  draw: function() {
+  draw: function(onSetText) {
     if (this.group == undefined) {
       this.group = "nogroup";
     }
@@ -28,8 +28,11 @@ TextView.prototype  = {
             html: '<label><input type="text" name="value" style="width: 300px" value="' + self.text + '"><br />' ,
             buttons: { OK: 1 },
             submit:function(e,v,m,f){ 
-              self.update({text: f.value})
+              self.update({text: f.value});
               self.text = f.value;
+              if (onSetText != undefined) {
+                onSetText(f.value);
+              }
               e.preventDefault();
               $.prompt.close();
             }

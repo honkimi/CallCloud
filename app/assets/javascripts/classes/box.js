@@ -54,6 +54,7 @@ Box.prototype = {
       }
       return;
     }
+    var self = this;
     var layerNameBase = "" + this.devision + this.number + this.myparent.number;
     // draw arrow
     var arrow = new ArrowView(this.myparent.baseX, this.myparent.arrowBaseY, this.baseX, this.baseY - $boxHeight / 2, "arrow" + layerNameBase, this.group);
@@ -72,10 +73,10 @@ Box.prototype = {
     aboveText.draw();
     // center text
     var centerText = new TextView(this.name, this.baseX, this.baseY, "Name" + layerNameBase, 16, true, this.group);
-    centerText.draw();
+    centerText.draw(function(text) { self.name = text; });
     // below text
     var belowText = new TextView(this.action, this.baseX, this.baseY + $boxHeight / 3, "Action" + layerNameBase, 14, true, this.group);
-    belowText.draw();
+    belowText.draw(function(text) { self.action = text;});
     // add text
     if (this.devision <= 1) {
       var addImg = new ImageView(this.baseX, this.baseY + $boxHeight - 30, 32, 'addImg' + layerNameBase, this.group);
