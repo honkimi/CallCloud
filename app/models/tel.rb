@@ -9,7 +9,7 @@ class Tel < ActiveRecord::Base
     json['actions'].each do |action|
       str << action['name']
       str << 'へのお問い合わせは'
-      str << Moji.han_to_zen(action['number'].to_s)
+      str << han_to_zen(action['number'])
       str << 'とシャープを、'
     end
     str << '入力してください。'
@@ -24,7 +24,7 @@ class Tel < ActiveRecord::Base
     json['actions'][idx]['children'].each do |child|
       str << action['name']
       str << 'へのお問い合わせは'
-      str << Moji.han_to_zen(action['number'].to_s)
+      str << han_to_zen(action['number'])
       str << 'とシャープを、'    
     end
     str << '入力してください。'
@@ -34,5 +34,10 @@ class Tel < ActiveRecord::Base
   def get_second_action_phone_number first, second
     json = JSON.parse(self.sheet)
     return json['actions'][first]['children'][second]['action']
+  end
+
+  private
+  def han_to_zen num
+    Moji.han_to_zen(num.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace, :replace => '?'}))
   end
 end
