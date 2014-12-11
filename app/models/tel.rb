@@ -1,5 +1,6 @@
 class Tel < ActiveRecord::Base
   has_many :user_tels
+  has_many :records
   has_many :users, :through => :user_tels
   has_one :twilio_phone
 

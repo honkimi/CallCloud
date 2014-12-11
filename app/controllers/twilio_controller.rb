@@ -1,8 +1,8 @@
 class TwilioController < ApplicationController
   protect_from_forgery with: :null_session
+  before_action :fetch_tel
 
   def welcome
-    @tel = Tel.find(params[:tel_id])
     raise if @tel.nil?
 
     say_word = @tel.first_msg
@@ -18,7 +18,6 @@ class TwilioController < ApplicationController
   end
 
   def action
-    @tel = Tel.find(params[:tel_id])
     xml_str = Twilio::TwiML::Response.new do |r|
       begin
         raise if @tel.nil?
@@ -26,7 +25,7 @@ class TwilioController < ApplicationController
 
         if say_word =~ /^[\+0-9]+$/
           # tel number
-          r.Dial :callerId => @tel.twilio_phone.number do |d|
+          r.Dial :callerId => @tel.twilio_phone.number, :record => @tel.is_record, :action => tel_record_url(@tel) do |d|
             d.Number TwilioClient.to_i18n_number(say_word)
           end
         else
@@ -45,10 +44,10 @@ class TwilioController < ApplicationController
   end
 
   def action2 
-    @tel = Tel.find(params[:tel_id])
     xml_str = Twilio::TwiML::Response.new do |r|
       begin
-        r.Dial :callerId => @tel.twilio_phone.number do |d|
+        raise if @tel.nil?
+        r.Dial :callerId => @tel.twilio_phone.number, :record => @tel.is_record, :action => tel_record_url(@tel) do |d|
           d.Number TwilioClient.to_i18n_number(@tel.get_second_action_phone_number(params[:action_id].to_i, params[:Digits].to_i - 1))
         end
       rescue => e
@@ -59,4 +58,10 @@ class TwilioController < ApplicationController
     end.text
     render xml: xml_str
   end
+
+  private
+  def fetch_tel
+    @tel = Tel.find(params[:tel_id])
+  end
+
 end
