@@ -1,0 +1,32 @@
+<div id="twilio_phones_new">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><%= t('.select_tel', :default => "Select Tel Number") %></h4>
+    </div>
+    <div class="panel-body">
+
+      <%= hidden_field_tag 'tel_id', @tel.id %>
+      <%= form_for [@tel, @twilio_phone] do |f| %>
+        <div class="form-group">
+          <label for="select" class="col-lg-2 control-label">Select Number</label>
+          <div class="col-lg-10">
+            <%= f.select :sid, ["loading.."], {}, {class: "form-control"} %>
+            <p class="text-warning">後で番号の修正はできませんので慎重に決めてください。</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <%= f.submit  "Set Number", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+$(function() {
+  // javascripts/main/twilio_phones.js
+  fetch_twilio_phone();
+});
+</script>

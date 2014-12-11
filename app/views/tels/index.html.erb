@@ -1,0 +1,27 @@
+<div id="tels_index">
+<% if @tels.empty? %>
+  <div class="jumbotron">
+    <p>ようこそ。さっそく電話オペレータ登録をしましょう！</p>
+    <%= link_to "追加", new_tel_path, class: "btn btn-primary" %>
+  </div>
+  <span class="no-tels">
+
+    <h2></h2>
+  </span>
+<% else %>
+<nav class="tel_list col-xs-3 menu" style="height: 634px;">
+  <%= link_to "　　New Tel", new_tel_path, class: "btn btn-primary btn-fab btn-raised mdi-content-add add-tel" %>
+
+  <ul>
+    <% @tels.each do |tel| %>
+      <li data="<%= tel.id %>" class="withripple"><%= tel.organize_name %><i class="mdi-hardware-keyboard-arrow-right"></i></li>
+    <% end %>
+  </ul>
+</nav>
+
+<div id="contents" class=" pages col-xs-9" style="height: 778px;" >
+  <div id="tel_contents" />
+</div>
+
+<% end %>
+</div>

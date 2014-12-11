@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= t('.create_tel', :default => "Create Tel Operator") %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for @tel do |f| %>
+      <div class="form-group">
+        <%= f.label :organization_name %>
+        <%= f.text_field :organize_name, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :base_tel_number %>
+        <%= f.text_field :base_tel_bumber, autocomplete: "off", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :first_msg_of_tel %>
+        <%= f.text_field :first_msg, autocomplete: "off", class: "form-control" %>
+      </div>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :is_record %>
+          <%= f.label :is_record  %>
+      </div>
+      <%= f.submit  "Create", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

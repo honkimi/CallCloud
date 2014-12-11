@@ -1,0 +1,51 @@
+<ul class="nav nav-tabs tel-tab" style="margin-bottom: 15px;">
+  <li data="/tels/id" class=""><a href="javascript:void(0)" data-toggle="tab">Operator</a></li>
+  <li data="/tels/id/records" class=""><a href="javascript:void(0)" data-toggle="tab">Record</a></li>
+  <li data="/tels/id/setting" class="active"><a href="javascript:void(0)" data-toggle="tab">Settings</a></li>
+</ul>
+
+
+<!-- tel contents -->
+  <div class="panel-body setting">
+    <%= form_for @tel, :url => {:action => 'update'}, :remote => true, :html => {:id => "tel_update_result"} do |f| %>
+      <div class="form-group">
+        <%= f.label :organization_name %>
+        <%= f.text_field :organize_name, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :base_tel_number %>
+        <%= f.text_field :base_tel_bumber, autocomplete: "off", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :first_msg_of_tel %>
+        <%= f.text_field :first_msg, autocomplete: "off", class: "form-control" %>
+      </div>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :is_record %>
+          <%= f.label :is_record  %>
+      </div>
+      <%= f.submit  "Update", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+<script> 
+$(function(){
+  $.material.init(); 
+
+  var showSnack = function(msg) {
+     $.snackbar({
+        content: msg,
+        style: "toast"
+     });
+  }
+
+  $('.setting')
+    .bind("ajax:success", function(data, status, xhr){
+      showSnack("Yay! Successfully saved.");
+    })
+    .on("ajax:failure", function(data, status, xhr){
+      showSnack("Oops! Failed to save.");
+    });
+})
+</script>

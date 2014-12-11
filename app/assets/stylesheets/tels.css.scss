@@ -1,0 +1,58 @@
+// Place all the styles related to the tels controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tels_index {
+  .menu {
+    padding: 0;
+
+    a.add-tel {
+      font-color: black;
+      color: #378072;
+    }
+
+    ul {
+      padding: 20px 0;
+
+      li {
+        list-style: none;
+        padding: 20px 0 20px 50px;
+        font-size: 15px;
+        font-weight: normal;
+        cursor: pointer;
+
+        i {
+          float: right;
+          margin-right: 30px;
+          font-size: 20px;
+        }
+
+      }
+      li.active {
+        background-color: #dedede;
+        position: relative;
+      }
+    }
+  }
+}
+
+#contents {
+  padding: 21px 0;
+}
+ul.tel-tab {
+  width: 900px;
+  
+  li {
+    width: 300px;
+    text-align: center;
+  }
+  li.active {
+    background-color: #5FB3EA;
+  }
+}
+
+.setting {
+  padding: 20px;
+}
+
+

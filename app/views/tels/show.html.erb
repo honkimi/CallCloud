@@ -1,0 +1,16 @@
+
+<ul class="nav nav-tabs tel-tab" style="margin-bottom: 15px;">
+  <li data="/tels/id" class="active"><a href="#home" data-toggle="tab">Operator</a></li>
+  <li data="/tels/id/records" class=""><a href="#home" data-toggle="tab">Record</a></li>
+  <li data="/tels/id/edit" class=""><a href="#home" data-toggle="tab">Settings</a></li>
+</ul>
+
+<!-- tel contents -->
+<canvas id="canvas" width='900' height='1400' style="background-color: #D6D6D6;"></canvas>
+
+<%= hidden_field_tag 'first_msg', @tel.first_msg %>
+<%= hidden_field_tag 'number', @tel.twilio_phone.friendly_name %>
+<%= hidden_field_tag 'base_tel_bumber', @tel.base_tel_bumber %>
+<%= hidden_field_tag 'organize_name', @tel.organize_name %>
+
+<%= javascript_include_tag 'jcanvas/controller' %>
