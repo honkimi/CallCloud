@@ -20,10 +20,11 @@ gem 'devise-bootstrap-views'
 # twilio
 gem 'twilio-ruby'
 
-group :production do
+group :production, :staging do
   # Production App Server
   gem 'unicorn'
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test, :development do
