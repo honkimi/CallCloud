@@ -90,6 +90,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.4.3)
+    moji (1.6)
     multi_json (1.10.1)
     orm_adapter (0.4.0)
     pg (0.17.1)
@@ -197,6 +198,7 @@ DEPENDENCIES
   dotenv-rails (= 0.11.1)
   jquery-jcanvas-rails!
   jquery-rails
+  moji
   pg
   pry-byebug
   pry-debugger

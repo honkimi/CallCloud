@@ -19,6 +19,7 @@ gem 'devise-bootstrap-views'
 
 # twilio
 gem 'twilio-ruby'
+gem 'moji'
 
 group :production, :staging do
   # Production App Server

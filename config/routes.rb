@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :twilio_phones
   end
 
-  post 'twilio/:tel_id/welcome' => 'twilio#welcome', as: :welcome
+  get 'twilio/:tel_id/welcome' => 'twilio#welcome', as: :welcome
   get 'twilio/:tel_id/action' => 'twilio#action', as: :action
   get 'twilio/:tel_id/action2/:action_id' => 'twilio#action2', as: :action2
 

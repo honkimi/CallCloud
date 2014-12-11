@@ -32,7 +32,7 @@ class TwilioPhonesController < ApplicationController
     
   private
   def init_twilio
-    @twilio = MyTwilio.new
+    @twilio = TwilioClient.new
   end
 
   def tel_get

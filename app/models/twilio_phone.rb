@@ -3,7 +3,7 @@ class TwilioPhone < ActiveRecord::Base
 
   def set_number number
     self.number = number.phone_number
-    self.friendly_name = MyTwilio.jap_number(number.phone_number)
+    self.friendly_name = TwilioClient.jap_number(number.phone_number)
     self.sid = number.sid
     self.voice_url = number.voice_url
   end

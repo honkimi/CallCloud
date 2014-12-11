@@ -27,7 +27,7 @@ class TwilioController < ApplicationController
         if say_word =~ /^[\+0-9]+$/
           # tel number
           r.Dial :callerId => @tel.twilio_phone.number do |d|
-            d.Number say_word
+            d.Number TwilioClient.to_i18n_number(say_word)
           end
         else
           # say
@@ -49,7 +49,7 @@ class TwilioController < ApplicationController
     xml_str = Twilio::TwiML::Response.new do |r|
       begin
         r.Dial :callerId => @tel.twilio_phone.number do |d|
-          d.Number say_word
+          d.Number TwilioClient.to_i18n_number(@tel.get_second_action_phone_number(params[:action_id], params[:Digits]))
         end
       rescue => e
         p e.message
