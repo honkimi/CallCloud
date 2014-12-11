@@ -6,7 +6,13 @@
 </ul>
 
 <!-- tel contents -->
-<canvas id="canvas" width='900' height='1400' style="background-color: #D6D6D6;"></canvas>
+<div id="tel_show">
+
+  <a href="javascript:void(0)" class="save btn btn-info">Save</a>
+  <canvas id="canvas" width='900' height='1400' style="background-color: #D6D6D6;"></canvas>
+  <a href="javascript:void(0)" class="save btn btn-info">Save</a>
+
+</div>
 
 <%= hidden_field_tag 'first_msg', @tel.first_msg %>
 <%= hidden_field_tag 'number', @tel.twilio_phone.friendly_name %>

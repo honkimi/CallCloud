@@ -51,9 +51,7 @@ var addImg = function(root) {
 
 var setSubmit = function(root) {
   // create submit btn
-  var submit = new TextView();
-  var submit = new TextView("保存", $dispX - 50, 50, "commit", 24, false);
-  submit.drawText(function() {
+  $('#tel_show .save').on('click', function() {
     var json = root.getResult();
     jsonString = JSON.stringify(json);
     param = {

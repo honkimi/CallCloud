@@ -45,9 +45,10 @@ ul.tel-tab {
   li {
     width: 300px;
     text-align: center;
+    background-color: #40549C;
   }
   li.active {
-    background-color: #5FB3EA;
+    background-color: #4E61A4;
   }
 }
 
@@ -55,4 +56,15 @@ ul.tel-tab {
   padding: 20px;
 }
 
+#tel_show {
+  .save {
+    display: block;
+    color: white;
+    width: 180px;
+  }
+  .save:hover {
+    background-color: #389AEC;
+  }
+
+}
 
