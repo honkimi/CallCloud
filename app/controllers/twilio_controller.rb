@@ -20,7 +20,7 @@ class TwilioController < ApplicationController
   def action
     @tel = Tel.find(params[:tel_id])
     xml_str = Twilio::TwiML::Response.new do |r|
-      begin
+#      begin
         raise if @tel.nil?
         say_word = @tel.get_second_action_message(params[:Digits])
 
@@ -35,11 +35,11 @@ class TwilioController < ApplicationController
             gather.Say say_word, language: "ja-jp"
           end
         end
-      rescue => e
-        p e.message
-        r.Say "正しい入力が確認できませんでした。", language: "ja-jp"
-        r.Redirect welcome_url(@tel), method: 'GET'
-      end
+#      rescue => e
+#        p e.message
+#        r.Say "正しい入力が確認できませんでした。", language: "ja-jp"
+#        r.Redirect welcome_url(@tel), method: 'GET'
+#      end
     end.text
     render xml: xml_str
   end
