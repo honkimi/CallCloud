@@ -12,7 +12,6 @@ class RecordsController < ApplicationController
     @tel = Tel.find(params[:tel_id])
     begin
       raise if @tel.nil?
-      
       record = Record.new
       record.from = TwilioClient.jap_number(voice_params[:From])
       record.to = TwilioClient.jap_number(voice_params[:To])
@@ -20,12 +19,15 @@ class RecordsController < ApplicationController
       record.duration = voice_params[:DialCallDuration]
       @tel.records << record
       @tel.save!
-
-      render text: "ok!"
     rescue => e
       p e.message
-      render text: "ng."
     end
+
+    xml_str = Twilio::TwiML::Response.new do |r|
+      r.Say "通話を終了します。", language: "ja-jp"
+      r.Hangup
+    end.text
+    render xml: xml_str
   end
 
   private
