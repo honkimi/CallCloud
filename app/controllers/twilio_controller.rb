@@ -49,7 +49,7 @@ class TwilioController < ApplicationController
     xml_str = Twilio::TwiML::Response.new do |r|
       begin
         r.Dial :callerId => @tel.twilio_phone.number do |d|
-          d.Number TwilioClient.to_i18n_number(@tel.get_second_action_phone_number(params[:action_id], params[:Digits].to_i - 1))
+          d.Number TwilioClient.to_i18n_number(@tel.get_second_action_phone_number(params[:action_id].to_i, params[:Digits].to_i - 1))
         end
       rescue => e
         p e.message
