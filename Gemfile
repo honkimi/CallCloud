@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.5'
 gem 'spring',        group: :development
-gem 'sqlite3'
+
 
 ## rails assets
 gem 'sass-rails', '~> 4.0.3'
@@ -23,9 +23,11 @@ gem 'twilio-ruby'
 group :production do
   # Production App Server
   gem 'unicorn'
+  gem 'pg'
 end
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'dotenv-rails', '0.11.1'
 
   gem 'pry-rails'
