@@ -58,7 +58,10 @@ ul.tel-tab {
 
 #tel_show {
   .save {
+    position: absolute;
     display: block;
+    left: 20px;
+    top: 90px;
     color: white;
     width: 180px;
   }
