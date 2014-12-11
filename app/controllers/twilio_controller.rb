@@ -37,8 +37,8 @@ class TwilioController < ApplicationController
         end
       rescue => e
         p e.message
-        response.Say "正しい入力が確認できませんでした。", language: "ja-jp"
-        response.Redirect welcome_url(@tel), method: 'GET'
+        r.Say "正しい入力が確認できませんでした。", language: "ja-jp"
+        r.Redirect welcome_url(@tel), method: 'GET'
       end
     end.text
     render xml: xml_str
@@ -53,8 +53,8 @@ class TwilioController < ApplicationController
         end
       rescue => e
         p e.message
-        response.Say "正しい入力が確認できませんでした。", language: "ja-jp"
-        response.Redirect welcome_url(@tel), method: 'GET'
+        r.Say "正しい入力が確認できませんでした。", language: "ja-jp"
+        r.Redirect welcome_url(@tel), method: 'GET'
       end
     end.text
     render xml: xml_str
