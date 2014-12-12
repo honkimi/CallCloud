@@ -33,6 +33,6 @@ class RecordsController < ApplicationController
 
   private
   def voice_params
-    params.permit(:From, :To, :RecordingUrl, :DialCallDuration)
+    params.permit(:From, :to, :RecordingUrl, :DialCallDuration)
   end
 end
