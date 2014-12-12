@@ -22,7 +22,7 @@ class TwilioController < ApplicationController
       begin
         raise if @tel.nil?
         say_word = @tel.get_second_action_message(params[:Digits].to_i - 1)
-
+        p "||||||||||||||#{say_word}"
         if say_word =~ /^[\+0-9]+$/
           # tel number
           r.Dial :callerId => @tel.twilio_phone.number, :record => @tel.is_record, :action => tel_records_url(@tel) do |d|
