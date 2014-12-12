@@ -25,10 +25,6 @@ ja:
     set_num: 番号の登録
     warn: 後で番号の修正はできませんので慎重に決めてください。
     select: 番号の選択
-  mail:
-    confirm:
-      welcome: コールクラウドへようこそ。
-      desc: 以下のリンクからアカウントを有効化することができます。
 
   activerecord:
     attributes:
