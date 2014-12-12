@@ -14,13 +14,21 @@ ja:
     save: 保存
     create: 電話の作成
   record:
-    warn: おっと、まだ一つも録音データが無いようです。設定の Is Record にチェックが入っているかを確認してください。
+    warn: おっと、まだ一つも録音データが無いようです。設定の 「録音する」 にチェックが入っているかを確認してください。
   member:
     invite: 招待
+    already: その方は既に参加済みです。
+    invited: その方は既に招待済みです。
+    success: やった！招待に成功しました。
+    back: 戻る
   twilio:
     set_num: 番号の登録
     warn: 後で番号の修正はできませんので慎重に決めてください。
     select: 番号の選択
+  mail:
+    confirm:
+      welcome: コールクラウドへようこそ。
+      desc: 以下のリンクからアカウントを有効化することができます。
 
   activerecord:
     attributes:

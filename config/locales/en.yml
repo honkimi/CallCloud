@@ -17,10 +17,19 @@ en:
     warn: "Oops, there are no records yet. Confirm the setting page whether is_record is checked."
   member:
     invite: "Invite"
+    already: "He is already joined!"
+    invited: "He is already invited to this group!"
+    success: "Yay! Successfully invited."
+    back: "Back"
   twilio:
     set_num: "Register Numbers"
     warn: "Select carefully since you cannot modify the numbers later."
     select: "Select Numbers"
+  mail:
+    confirm:
+      welcome: Welcome to Call Cloud!
+      desc: You can confirm your account email through the link below:
+
 
   activerecord:
     attributes:

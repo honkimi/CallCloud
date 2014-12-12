@@ -23,12 +23,12 @@ ja:
         instruction: "以下のリンクをクリックして、アカウントを有効化できます。"
         subject: アカウントの有効化について
       reset_password_instructions:
-        action: "Change my password"
-        greeting: "Hello %{recipient}!"
-        instruction: "Someone has requested a link to change your password, and you can do this through the link below."
-        instruction_2: "If you didn't request this, please ignore this email."
-        instruction_3: "Your password won't change until you access the link above and create a new one."
-        subject: "Reset password instructions"
+        action: "パスワードの変更"
+        greeting: "こんにちは、 %{recipient}さん!"
+        instruction: "あなたのパスワードの変更リクエストが送信されました。以下のリンクより、実施できます。"
+        instruction_2: "もしこのリクエストに覚えがない場合はこのメールを無視してください。"
+        instruction_3: "あなたのパスワードは以下のリンクにアクセスしない限り変更されることはありません。"
+        subject: パスワードの再設定について
       unlock_instructions:
         action: "パスワードの再設定"
         greeting: "お世話になってます、 %{recipient}さん!"

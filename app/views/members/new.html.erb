@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h4><%= t('.add_member', :default => "Invite") %></h4>
+    <h4><%= t("member.invite") %></h4>
   </div>
   <div class="panel-body">
     <%= form_for [@tel, @invite], url: tel_members_path(@tel) do |f| %>
@@ -9,9 +9,9 @@
         <%= f.email_field :to_email, autofocus: true, class: "form-control" %>
       </div>
 
-      <%= f.submit  t('.add_member', :default => "Invite"), class: "btn btn-primary" %>
+      <%= f.submit  t('member.invite'), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
 
-<a href="/" class="btn btn-default btn-raised">＜＜ 戻る</a>
+<a href="/" class="btn btn-default btn-raised">＜＜ <%= t('member.back') %></a>

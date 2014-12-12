@@ -16,9 +16,9 @@ class MembersController < ApplicationController
   def create
     begin 
       member_from_mail = @tel.users.where(email: invite_param[:to_email])
-      raise "He is already joined!" unless member_from_mail.empty?
+      raise I18n.t("member.already") unless member_from_mail.empty?
       invite = Invite.find_by_to_email_and_tel_id(invite_param[:to_email], @tel.id)
-      raise "He is already invited to this group!" unless invite.nil?
+      raise I18n.t("member.invited") unless invite.nil?
 
       invite = Invite.new(invite_param)
       invite.tel_id = @tel.id
@@ -28,7 +28,7 @@ class MembersController < ApplicationController
       invited = User.find_by_email(invite_param[:to_email])
       InviteMailer.welcome(current_user, invite_param[:to_email]).deliver if invited.nil?
 
-      flash[:notice] = "やった！招待に成功しました。"
+      flash[:notice] = I18n.t("member.success")
     rescue => e
       flash[:alert] = e.message
     end
