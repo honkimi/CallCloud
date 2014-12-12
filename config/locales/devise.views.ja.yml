@@ -108,5 +108,6 @@ ja:
         current_sign_in_at: "ログアウト"
         email: "メールアドレス"
         password: "パスワード"
+        password_confirmation: "パスワードの確認"
         last_sign_in_at: "最終ログイン時刻"
 
