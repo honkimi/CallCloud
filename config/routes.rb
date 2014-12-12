@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :sheets
     resources :twilio_phones
     resources :records
+    resources :members
   end
 
   get 'twilio/:tel_id/welcome' => 'twilio#welcome', as: :welcome

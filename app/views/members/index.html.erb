@@ -1,0 +1,63 @@
+
+<%= render :partial => 'shared/tel_tab', :locals => {active: 2} %>
+
+
+<div id="members">
+  <table class="table table-striped table-hover ">
+    <thead>
+      <tr>
+        <th>email</th>
+        <th>name</th>
+        <th>tel</th>
+        <th>role</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @user_tels.each_with_index do |user_tel, i| %>
+      <tr>
+         <td><%= @users[i].email %></td>
+         <td><%= @users[i].name %></td>
+         <td><%= @users[i].tel %></td>
+         <td>
+           <span class="edit <%= "role#{i}" %> <%= "edit#{i}" %>"><%= role(user_tel) %></span>
+           <%= form_for user_tel, :url => tel_member_url(user_tel.tel_id, user_tel.id), remote: true, html: {class: "role_update_form"} do |f| %>
+             <%= f.select :role, roles, {include_blank: role(user_tel)}, {class: " m_form form-control form#{i} select#{i}"} %>
+             <input type="hidden" name="idx" value="<%= i %>" />
+             <%= f.submit("Submit", class: "submitRole btn btn-info m_form form#{i}") %>
+           <% end %>
+         </td>
+         <td>
+           <% if current_user.id != @users[i].id %>
+            <%= link_to("Edit", "javascript: void(0)", class: "editBtn edit edit#{i}", data: "#{i}") %>
+           <% end %>
+         </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <a href="javascript:void(0)" class="invite btn btn-primary">Invite</a>
+</div>
+
+<script>
+$(function() {
+  $('.editBtn').on('click', function() {
+    var i = $(this).attr('data');
+    $(".form" + i).show();
+    $(".edit" + i).hide();
+   });
+
+  $('.role_update_form')
+    .bind("ajax:success", function(q, data, xhr){
+      if (data.status == "ok") {
+        showSnack("Yay! Successfully saved.");
+      } else {
+        showSnack("Failed to update.");
+      }
+      $(".form" + data.idx).hide();
+      $(".edit" + data.idx).show();
+      console.log(data);
+      $(".role" + data.idx).text(data.role);
+    })
+});
+</script>

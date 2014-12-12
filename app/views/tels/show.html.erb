@@ -1,9 +1,4 @@
-
-<ul class="nav nav-tabs tel-tab" style="margin-bottom: 15px;">
-  <li data="/tels/id" class="active"><a href="#home" data-toggle="tab">Operator</a></li>
-  <li data="/tels/id/records" class=""><a href="#home" data-toggle="tab">Record</a></li>
-  <li data="/tels/id/edit" class=""><a href="#home" data-toggle="tab">Settings</a></li>
-</ul>
+<%= render :partial => 'shared/tel_tab', :locals => {active: 0} %>
 
 <!-- tel contents -->
 <div id="tel_show">

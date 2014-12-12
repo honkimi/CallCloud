@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
          :confirmable,
          :trackable, 
          :validatable
+
+  def user_tel(tel_id)
+    UserTel.find_by_user_id_and_tel_id(self[:id], tel_id)
+  end
 end

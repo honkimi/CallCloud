@@ -1,8 +1,5 @@
-<ul class="nav nav-tabs tel-tab" style="margin-bottom: 15px;">
-  <li data="/tels/id" class=""><a href="javascript:void(0)" data-toggle="tab">Operator</a></li>
-  <li data="/tels/id/records" class=""><a href="javascript:void(0)" data-toggle="tab">Record</a></li>
-  <li data="/tels/id/setting" class="active"><a href="javascript:void(0)" data-toggle="tab">Settings</a></li>
-</ul>
+
+<%= render :partial => 'shared/tel_tab', :locals => {active: 3} %>
 
 
 <!-- tel contents -->
@@ -33,12 +30,6 @@
 $(function(){
   $.material.init(); 
 
-  var showSnack = function(msg) {
-     $.snackbar({
-        content: msg,
-        style: "toast"
-     });
-  }
 
   $('.setting')
     .bind("ajax:success", function(data, status, xhr){

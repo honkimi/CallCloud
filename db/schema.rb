@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211165207) do
+ActiveRecord::Schema.define(version: 20141212001035) do
 
   create_table "records", force: true do |t|
     t.integer  "tel_id",     null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20141211165207) do
     t.boolean  "is_notify",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role"
   end
 
   add_index "user_tels", ["tel_id"], name: "index_user_tels_on_tel_id"

@@ -1,5 +1,3 @@
-jQuery.fn.exists = function(){return Boolean(this.length > 0);}
-
 var TextView = function(text, baseX, baseY, name, fontSize, hasEvent, group, color) {
   this.text = text;
   this.baseX = baseX;
