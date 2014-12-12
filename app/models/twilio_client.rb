@@ -27,7 +27,7 @@ class TwilioClient
   end
 
   def self.jap_number number
-    number.sub("+81","0")
+    number.sub("+81","0").gsub(/-/, "")
   end
 
   def self.to_i18n_number tel
