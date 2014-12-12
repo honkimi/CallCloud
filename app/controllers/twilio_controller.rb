@@ -9,7 +9,7 @@ class TwilioController < ApplicationController
     say_word << @tel.get_first_action_message()
 
     xml_str = Twilio::TwiML::Response.new do |r|
-      r.Gather timeout: 30, finishOnKey: '#', action: action_url(@tel), method: 'GET' do |gather|
+      r.Gather timeout: 60, finishOnKey: '#', action: action_url(@tel), method: 'GET' do |gather|
         gather.Say say_word, language: "ja-jp"
       end
     end.text
@@ -30,7 +30,7 @@ class TwilioController < ApplicationController
           end
         else
           # say
-          r.Gather timeout: 30, finishOnKey: '#', action: action2_url(@tel.id, params[:Digits].to_i - 1), method: 'GET' do |gather|
+          r.Gather timeout: 60, finishOnKey: '#', action: action2_url(@tel.id, params[:Digits].to_i - 1), method: 'GET' do |gather|
             gather.Say say_word, language: "ja-jp"
           end
         end
