@@ -28,7 +28,9 @@
            <% end %>
          </td>
          <td>
-           <% if current_user.id != @users[i].id %>
+           <% if current_user.id != @users[i].id && 
+                current_user.id == user_tel.user_id &&
+                user_tel.role == 30 %>
             <%= link_to("Edit", "javascript: void(0)", class: "editBtn edit edit#{i}", data: "#{i}") %>
            <% end %>
          </td>
@@ -36,7 +38,8 @@
     <% end %>
     </tbody>
   </table>
-  <a href="javascript:void(0)" class="invite btn btn-primary">Invite</a>
+
+  <%= link_to("Invite", new_tel_member_path(@tel), class: "invite btn btn-primary") %>
 </div>
 
 <script>

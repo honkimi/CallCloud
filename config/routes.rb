@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :records
     resources :members
   end
+  resources :invites
 
   get 'twilio/:tel_id/welcome' => 'twilio#welcome', as: :welcome
   get 'twilio/:tel_id/action' => 'twilio#action', as: :action

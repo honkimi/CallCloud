@@ -1,20 +1,39 @@
 class MembersController < ApplicationController
   before_action :fetch_tel
+  before_action :authenticate_user!
 
   def index
-    @user_tels = UserTel.where(:id => @tel.id)
+    @user_tels = UserTel.where(:tel_id => @tel.id)
     @users = User.find(@user_tels.map(&:user_id))
-    p @user_tels
 
     render layout: false
   end
 
   def new
-
+    @invite = Invite.new
   end
 
   def create
+    begin 
+      member_from_mail = @tel.users.where(email: invite_param[:to_email])
+      raise "He is already joined!" unless member_from_mail.empty?
+      invite = Invite.find_by_to_email_and_tel_id(invite_param[:to_email], @tel.id)
+      raise "He is already invited to this group!" unless invite.nil?
 
+      invite = Invite.new(invite_param)
+      invite.tel_id = @tel.id
+      invite.user_id = current_user.id
+      invite.save!
+      # send mail if he not joined this service
+      invited = User.find_by_email(invite_param[:to_email])
+      InviteMailer.welcome(current_user).deliver if invited.nil?
+
+      flash[:notice] = "Yay! invited him Successfully"
+    rescue => e
+      flash[:alert] = e.message
+    end
+    @invite = Invite.new
+    render action: :new
   end
 
   def update
@@ -37,5 +56,9 @@ class MembersController < ApplicationController
 
   def user_tel_param
     params.require(:user_tel).permit(:role)
+  end
+
+  def invite_param
+    params.require(:invite).permit(:to_email)
   end
 end

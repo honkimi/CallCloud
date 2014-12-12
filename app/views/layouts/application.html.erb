@@ -21,6 +21,13 @@
   <div class="navbar-collapse collapse navbar-warning-collapse">
     <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %> 
+          <% if controller.controller_name == "tels" && controller.action_name == "index" %>
+          <li class="dropdown" id="noticeArea">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Notice <span class="badge">0</span></a>
+            <ul class="notify_list dropdown-menu">
+            </ul>
+          </li>
+          <% end %>
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">

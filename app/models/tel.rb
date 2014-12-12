@@ -3,6 +3,7 @@ class Tel < ActiveRecord::Base
   has_many :records
   has_many :users, :through => :user_tels
   has_one :twilio_phone
+  has_many :invite
 
   def get_first_action_message
     json = JSON.parse(self.sheet)

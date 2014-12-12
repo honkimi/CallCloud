@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= t('.add_member', :default => "Invite") %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for [@tel, @invite], url: tel_members_path(@tel) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :to_email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <%= f.submit  t('.add_member', :default => "Invite"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

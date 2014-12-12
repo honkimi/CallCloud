@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212001035) do
+ActiveRecord::Schema.define(version: 20141212091026) do
+
+  create_table "invites", force: true do |t|
+    t.string   "to_email",   default: "", null: false
+    t.integer  "status",     default: 0,  null: false
+    t.integer  "tel_id",                  null: false
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invites", ["tel_id"], name: "index_invites_on_tel_id"
+  add_index "invites", ["to_email", "status"], name: "index_invites_on_to_email_and_status", unique: true
+  add_index "invites", ["user_id"], name: "index_invites_on_user_id"
 
   create_table "records", force: true do |t|
     t.integer  "tel_id",     null: false

@@ -1,0 +1,6 @@
+<div class="jumbotron">
+  <h2><%= @tel.organize_name %>に参加しますか？</h2>
+  <%= form_for @invite do |f| %>
+    <p><%= f.submit "参加する！", class: "btn btn-primary btn-lg" %></p>
+  <% end %>
+</div>

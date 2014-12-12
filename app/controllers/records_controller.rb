@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   protect_from_forgery :except => :create, :only => [:create]
+  before_action :authenticate_user!
 
   def index
     @tel = Tel.find(params[:tel_id])
