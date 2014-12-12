@@ -11,6 +11,7 @@ class TelsController < ApplicationController
       flash['notice'] = 'Please select the phone number.'
       redirect_to new_tel_twilio_phone_url(@tel, redirected: true)
     else 
+      @user_tel = current_user.user_tel(@tel.id)
       render :layout => false
     end
   end
