@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
       raise if @tel.nil?
       record = Record.new
       record.from = TwilioClient.jap_number(voice_params[:From])
-      record.to = TwilioClient.jap_number(voice_params[:To])
+      record.to = TwilioClient.jap_number(voice_params[:to])
       record.voice_url = voice_params[:RecordingUrl]
       record.duration = voice_params[:DialCallDuration]
       @tel.records << record
