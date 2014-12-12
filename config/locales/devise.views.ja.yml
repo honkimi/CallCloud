@@ -1,0 +1,112 @@
+ja:
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "再送確認"
+      confirmed: "アカウントが確認されました。"
+      send_instructions: アカウントの有効化について数分以内にメールでご連絡します。
+      send_paranoid_instructions: あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。
+    failure:
+      already_authenticated: すでにログインしています。
+      inactive: アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。
+      invalid: メールアドレスまたはパスワードが違います。
+      last_attempt: あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。
+      locked: あなたのアカウントは凍結されています。
+      not_found_in_database: メールアドレスまたはパスワードが違います。
+      timeout: セッションがタイムアウトしました。もう一度ログインしてください。
+      unauthenticated: アカウント登録もしくはログインしてください。
+      unconfirmed: メールアドレスの本人確認が必要です。
+    mailer:
+      confirmation_instructions:
+        action: "アカウントを有効化する"
+        greeting: "ようこそ %{recipient}さん!"
+        instruction: "以下のリンクをクリックして、アカウントを有効化できます。"
+        subject: アカウントの有効化について
+      reset_password_instructions:
+        action: "Change my password"
+        greeting: "Hello %{recipient}!"
+        instruction: "Someone has requested a link to change your password, and you can do this through the link below."
+        instruction_2: "If you didn't request this, please ignore this email."
+        instruction_3: "Your password won't change until you access the link above and create a new one."
+        subject: "Reset password instructions"
+      unlock_instructions:
+        action: "パスワードの再設定"
+        greeting: "お世話になってます、 %{recipient}さん!"
+        instruction: "以下のリンクをクリックして、パスワードを再設定しましょう。"
+        message: "アカウントは一定数以上のログイン失敗のため、ロックされました。"
+        subject: パスワードの再設定について
+    omniauth_callbacks:
+      failure: "%{kind} からの認証に失敗しました。原因:  \"%{reason}\"."
+      success: "%{kind} からの認証に成功しました。"
+    passwords:
+      new:
+        forgot_your_password: "パスワードを忘れた？"
+        send_me_reset_password_instructions: "パスワードをリセットする"
+      edit:
+        change_your_password: "パスワードの変更"
+        new_password: "新しいパスワード"
+        confirm_new_password: "パスワード確認"
+        change_my_password: "パスワードの変更"
+      no_token: このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください。
+      send_instructions: パスワードの再設定について数分以内にメールでご連絡いたします。
+      send_paranoid_instructions: あなたのメールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます。
+      updated: パスワードが正しく変更されました。
+      updated_not_active: パスワードが正しく変更されました。
+    registrations:
+      edit:
+        are_you_sure: "本当によろしいですか？"
+        cancel_my_account: "アカウントを削除する"
+        leave_blank_if_you_don_t_want_to_change_it: "もし変更したくない場合は空白にしてください。"
+        title: "%{resource}の編集"
+        we_need_your_current_password_to_confirm_your_changes: "変更を確認するためにパスワードが必要です。"
+        update: "更新"
+        unhappy: "疲れた"
+      new:
+        sign_up: "新規登録"
+      destroyed: "さようなら！アカウントの削除に成功しました。またいつかお会いできると信じています。"
+      signed_up: "ようこそ！会員登録に成功しました。"
+      signed_up_but_inactive: ログインするためには、アカウントを有効化してください。
+      signed_up_but_locked: アカウントが凍結されているためログインできません。
+      signed_up_but_unconfirmed: 本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。
+      update_needs_confirmation: アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。
+      updated: アカウント情報を変更しました。
+    sessions:
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
+      new:
+        sign_in: "ログイン"
+    shared:
+      links:
+        didn_t_receive_confirmation_instructions: "確認メールを受け取れませんでしたか？"
+        didn_t_receive_unlock_instructions: "アカウント凍結メールを受け取れませんdしたか？"
+        forgot_your_password: "パスワードを忘れましたか？"
+        sign_in: "ログイン"
+        sign_in_with_provider: "%{provider}でログインする"
+        sign_up: "会員登録"
+    unlocks:
+      new:
+        resend_unlock_instructions: "アカウント凍結方法"
+      send_instructions: アカウントの凍結解除方法を数分以内にメールでご連絡します。
+      send_paranoid_instructions: アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。
+      unlocked: アカウントを凍結解除しました。
+  errors:
+    messages:
+      already_confirmed: は既に登録済みです。ログインしてください。
+      confirmation_period_expired: の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。
+      expired: の有効期限が切れました。新しくリクエストしてください。
+      not_found: は見つかりませんでした。
+      not_locked: は凍結されていません。
+      not_saved:
+        one: 'エラーが発生したため %{resource} は保存されませんでした:'
+        other: '%{count} 件のエラーが発生したため %{resource} は保存されませんでした:'
+
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        current_sign_in_at: "ログアウト"
+        email: "メールアドレス"
+        password: "パスワード"
+        last_sign_in_at: "最終ログイン時刻"
+

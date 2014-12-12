@@ -34,10 +34,10 @@ class InvitesController < ApplicationController
       invite.status = 1
       invite.save!
     end
-      flash[:notice] = "Yay! Successfully joined the organization."
+      flash[:notice] = "やった！組織の参加に成功しました。"
       redirect_to tels_url
     rescue => e
-      flash[:alert] = "Failed to join the organization.."
+      flash[:alert] = "おっと、組織の参加に失敗しました。"
       redirect_to edit_invite_url(invite)
   end
 end

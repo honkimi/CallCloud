@@ -22,7 +22,7 @@ class TwilioPhonesController < ApplicationController
       @twilio_phone.set_number(number)
       @tel.twilio_phone = @twilio_phone
       @tel.save!
-      flash['notice'] = 'Yay! Your tel was created. '
+      flash['notice'] = 'やった！電話番号が登録されました。'
       redirect_to tels_url
     rescue => e
       flash['alert'] = e.message

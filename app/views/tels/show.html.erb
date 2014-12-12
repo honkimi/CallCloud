@@ -4,7 +4,7 @@
 <div id="tel_show">
 
   <% if @user_tel.role == 30 || @user_tel.role == 20 %>
-  <a href="javascript:void(0)" class="save btn btn-info">Save</a>
+    <a href="javascript:void(0)" class="save btn btn-info"><%= t('tel.save') %></a>
   <% end %>
   <canvas id="canvas" width='900' height='1400'></canvas>
 

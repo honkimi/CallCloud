@@ -28,7 +28,7 @@ class MembersController < ApplicationController
       invited = User.find_by_email(invite_param[:to_email])
       InviteMailer.welcome(current_user, invite_param[:to_email]).deliver if invited.nil?
 
-      flash[:notice] = "Yay! invited him Successfully"
+      flash[:notice] = "やった！招待に成功しました。"
     rescue => e
       flash[:alert] = e.message
     end

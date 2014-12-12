@@ -8,15 +8,15 @@
       <%= hidden_field_tag 'tel_id', @tel.id %>
       <%= form_for [@tel, @twilio_phone] do |f| %>
         <div class="form-group">
-          <label for="select" class="col-lg-2 control-label">Select Number</label>
+          <label for="select" class="col-lg-2 control-label"><%= t('twilio.select') %></label>
           <div class="col-lg-10">
             <%= f.select :sid, ["loading.."], {}, {class: "form-control"} %>
-            <p class="text-warning">後で番号の修正はできませんので慎重に決めてください。</p>
+            <p class="text-warning"><%= t('twilio.warn') %></p>
           </div>
         </div>
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <%= f.submit  "Set Number", class: "btn btn-primary" %>
+            <%= f.submit  t("twilio.set_num"), class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>

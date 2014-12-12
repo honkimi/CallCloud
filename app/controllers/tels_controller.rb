@@ -8,7 +8,7 @@ class TelsController < ApplicationController
 
   def show
     if @tel.twilio_phone == nil
-      flash['notice'] = 'Please select the phone number.'
+      flash['notice'] = '電話番号を選択してください。'
       redirect_to new_tel_twilio_phone_url(@tel, redirected: true)
     else 
       @user_tel = current_user.user_tel(@tel.id)
@@ -28,7 +28,7 @@ class TelsController < ApplicationController
     @tel = Tel.new(tel_param)
     @tel.users << current_user
     if @tel.save && current_user.user_tel(@tel.id).admin!
-      flash['notice'] = 'Yay! Your tel was created. Please select the phone number.'
+      flash['notice'] = 'やった！新しい電話が生成されました。電話番号を選択してください。'
       redirect_to new_tel_twilio_phone_url(@tel)
     else 
       render :new

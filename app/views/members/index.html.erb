@@ -39,7 +39,7 @@
     </tbody>
   </table>
 
-  <%= link_to("Invite", new_tel_member_path(@tel), class: "invite btn btn-primary") %>
+  <%= link_to(t("member.invite"), new_tel_member_path(@tel), class: "invite btn btn-primary") %>
 </div>
 
 <script>
@@ -53,9 +53,9 @@ $(function() {
   $('.role_update_form')
     .bind("ajax:success", function(q, data, xhr){
       if (data.status == "ok") {
-        showSnack("Yay! Successfully saved.");
+        showSnack("やたt！保存に成功しました。");
       } else {
-        showSnack("Failed to update.");
+        showSnack("更新に失敗しました。");
       }
       $(".form" + data.idx).hide();
       $(".edit" + data.idx).show();

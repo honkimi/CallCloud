@@ -1,23 +1,33 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+ja:
+  tab:
+    operator: オペレータ
+    record: 通話記録
+    member: 参加メンバー
+    setting: 設定
+    notice: 通知
+    account: アカウント
+    upgrade: アップグレード
+    signout: ログアウト
+    signup: 新規登録
+    signin: ログイン
+  tel:
+    save: 保存
+    create: 電話の作成
+  record:
+    warn: おっと、まだ一つも録音データが無いようです。設定の Is Record にチェックが入っているかを確認してください。
+  member:
+    invite: 招待
+  twilio:
+    set_num: 番号の登録
+    warn: 後で番号の修正はできませんので慎重に決めてください。
+    select: 番号の選択
 
-en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      tel:
+        organization_name: 組織名
+        base_tel_number: デフォルト電話番号
+        first_msg_of_tel: 電話の始めの一言
+        is_record: 録音する
+
+

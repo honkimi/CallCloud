@@ -33,10 +33,10 @@ $(function(){
 
   $('.setting')
     .bind("ajax:success", function(data, status, xhr){
-      showSnack("Yay! Successfully saved.");
+      showSnack("やった！保存に成功しました。");
     })
     .on("ajax:failure", function(data, status, xhr){
-      showSnack("Oops! Failed to save.");
+      showSnack("おっと、保存に失敗しました。");
     });
 })
 </script>

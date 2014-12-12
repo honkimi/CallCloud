@@ -64,9 +64,9 @@ var setSubmit = function(root) {
        url: "/tels/" + $('.tel_list li.active').attr('data') + "/sheets",
        data: param,
        success: function(msg){
-         var msg = "Yay! Successfully saved.";
+         var msg = "やった！保存に成功しました。";
          if (msg.status == "ng") {
-           msg = "Oops! Failed to save.";
+           msg = "おっと、保存に失敗しました。";
          }
          $.snackbar({
             content: msg,
