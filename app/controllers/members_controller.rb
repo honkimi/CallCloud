@@ -26,7 +26,7 @@ class MembersController < ApplicationController
       invite.save!
       # send mail if he not joined this service
       invited = User.find_by_email(invite_param[:to_email])
-      InviteMailer.welcome(current_user).deliver if invited.nil?
+      InviteMailer.welcome(current_user, invite_param[:to_email]).deliver if invited.nil?
 
       flash[:notice] = "Yay! invited him Successfully"
     rescue => e
