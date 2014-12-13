@@ -36,6 +36,7 @@ class TelsController < ApplicationController
   end
 
   def update
+    p params
     @tel = Tel.find(params[:id])
     if @tel.update_attributes(tel_param)
       render json: @tel, status: 200
