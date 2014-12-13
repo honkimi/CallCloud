@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212091026) do
+ActiveRecord::Schema.define(version: 20141213081041) do
 
   create_table "invites", force: true do |t|
     t.string   "to_email",   default: "", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141212091026) do
     t.text     "sheet"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "voice_type",      default: "woman", null: false
   end
 
   create_table "twilio_phones", force: true do |t|

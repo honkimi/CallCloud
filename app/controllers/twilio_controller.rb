@@ -10,7 +10,7 @@ class TwilioController < ApplicationController
 
     xml_str = Twilio::TwiML::Response.new do |r|
       r.Gather timeout: 60, finishOnKey: '#', action: action_url(@tel), method: 'GET' do |gather|
-        gather.Say say_word, language: "ja-jp"
+        gather.Say say_word, voice: @tel.voice_type , language: "ja-jp"
       end
     end.text
 
@@ -30,12 +30,12 @@ class TwilioController < ApplicationController
         else
           # say
           r.Gather timeout: 60, finishOnKey: '#', action: action2_url(@tel.id, params[:Digits].to_i - 1), method: 'GET' do |gather|
-            gather.Say say_word, language: "ja-jp"
+            gather.Say say_word, voice: @tel.voice_type ,language: "ja-jp"
           end
         end
       rescue => e
         p e.message
-        r.Say "正しい入力が確認できませんでした。", language: "ja-jp"
+        r.Say "正しい入力が確認できませんでした。", voice: @tel.voice_type , language: "ja-jp"
         r.Redirect welcome_url(@tel), method: 'GET'
       end
     end.text
@@ -52,7 +52,7 @@ class TwilioController < ApplicationController
         end
       rescue => e
         p e.message
-        r.Say "正しい入力が確認できませんでした。", language: "ja-jp"
+        r.Say "正しい入力が確認できませんでした。", voice: @tel.voice_type , language: "ja-jp"
         r.Redirect welcome_url(@tel), method: 'GET'
       end
     end.text

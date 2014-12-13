@@ -46,7 +46,7 @@ class TelsController < ApplicationController
 
   private
   def tel_param
-    params.require(:tel).permit(:organize_name, :base_tel_bumber, :first_msg, :is_record)
+    params.require(:tel).permit(:organize_name, :base_tel_bumber, :first_msg, :is_record, :voice_type)
   end
 
   def fetch_tel

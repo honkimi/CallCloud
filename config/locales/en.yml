@@ -13,6 +13,8 @@ en:
   tel:
     save: "Save"
     create: "New Tel"
+    type_man: "Man's Voice"
+    type_woman: "Woman's Voice"
   record:
     warn: "Oops, there are no records yet. Confirm the setting page whether is_record is checked."
   member:

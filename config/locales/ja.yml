@@ -13,6 +13,8 @@ ja:
   tel:
     save: 保存
     create: 電話の作成
+    type_man: 男声
+    type_woman: 女声
   record:
     warn: おっと、まだ一つも録音データが無いようです。設定の 「録音する」 にチェックが入っているかを確認してください。
   member:
