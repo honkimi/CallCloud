@@ -34,4 +34,6 @@ en:
         base_tel_number: "Base Telephone Number"
         first_msg_of_tel: "The first message in the tel."
         is_record: "Is Record?"
+  sms:
+    msg: "Called to you from CallCloud.\nFrom: "
 

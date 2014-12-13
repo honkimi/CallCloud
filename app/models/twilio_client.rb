@@ -34,6 +34,14 @@ class TwilioClient
     tel.sub(/^0/, "+81").gsub(/-/, "")
   end
 
+  def send_sms base_number, to, from
+    @client.messages.create(
+      from: base_number,
+      to: to,
+      body: I18n.t("sms.msg") + from
+    )
+  end
+
   private
   def get_client
     Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN'] 
