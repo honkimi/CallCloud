@@ -2,7 +2,7 @@
 $.jCanvas.defaults.layer = true;
 
 // user settings
-number = "受付番号: " + $("#number").val(); // see box.js base_tel.
+number = "電話受付: " + $("#number").val(); // see box.js base_tel.
 base_tel = $("#base_tel_bumber").val(); // see box.js base_tel.
 first_msg = $("#first_msg").val();
 
