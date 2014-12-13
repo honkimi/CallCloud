@@ -122,7 +122,7 @@ ImageView.prototype = {
   },
   drawDel: function(clicked) {
     this.draw('img/circle_red.png');
-    var delText = new TextView("Ｘ", this.x, this.y, this.name, 22, clicked , this.group, "red");
+    var delText = new TextView("x", this.x, this.y, this.name, 22, clicked , this.group, "red");
     delText.drawText(clicked);
   }, 
   draw: function(imgUrl) {
