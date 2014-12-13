@@ -21,6 +21,9 @@ ja:
     invited: その方は既に招待済みです。
     success: やった！招待に成功しました。
     back: 戻る
+  invite:
+    success: やった！組織の参加に成功しました。
+    failed: おっと、組織の参加に失敗しました。
   twilio:
     set_num: 番号の登録
     warn: 後で番号の修正はできませんので慎重に決めてください。

@@ -7,8 +7,6 @@
     <thead>
       <tr>
         <th>email</th>
-        <th>name</th>
-        <th>tel</th>
         <th>role</th>
         <th></th>
       </tr>
@@ -17,8 +15,6 @@
     <% @user_tels.each_with_index do |user_tel, i| %>
       <tr>
          <td><%= @users[i].email %></td>
-         <td><%= @users[i].name %></td>
-         <td><%= @users[i].tel %></td>
          <td>
            <span class="edit <%= "role#{i}" %> <%= "edit#{i}" %>"><%= role(user_tel) %></span>
            <%= form_for user_tel, :url => tel_member_url(user_tel.tel_id, user_tel.id), remote: true, html: {class: "role_update_form"} do |f| %>
@@ -29,8 +25,7 @@
          </td>
          <td>
            <% if current_user.id != @users[i].id && 
-                current_user.id == user_tel.user_id &&
-                user_tel.role == 30 %>
+                 @my_user_tel.role == 30 %>
             <%= link_to("Edit", "javascript: void(0)", class: "editBtn edit edit#{i}", data: "#{i}") %>
            <% end %>
          </td>
@@ -53,7 +48,7 @@ $(function() {
   $('.role_update_form')
     .bind("ajax:success", function(q, data, xhr){
       if (data.status == "ok") {
-        showSnack("やたt！保存に成功しました。");
+        showSnack("やった！保存に成功しました。");
       } else {
         showSnack("更新に失敗しました。");
       }

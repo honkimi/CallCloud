@@ -13,7 +13,6 @@ class RecordsController < ApplicationController
     @tel = Tel.find(params[:tel_id])
     begin
       raise if @tel.nil?
-      p "|||||||| #{params[:DialCallStatus]}"
       if params[:DialCallStatus] == "completed" && params[:RecordingUrl]
         record = Record.new
         record.from = TwilioClient.jap_number(voice_params[:From])
@@ -24,12 +23,6 @@ class RecordsController < ApplicationController
         @tel.save!
       elsif params[:DialCallStatus] != "completed"
         p "|||||||| sending sms"
-        # send sms
-        TwilioClient.new.send_sms(
-          @tel.twilio_phone.number,
-          voice_params[:to],
-          voice_params[:From]
-        )
       end
     rescue => e
       p e.message

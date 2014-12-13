@@ -60,7 +60,7 @@ ja:
         title: "%{resource}の編集"
         we_need_your_current_password_to_confirm_your_changes: "変更を確認するためにパスワードが必要です。"
         update: "更新"
-        unhappy: "疲れた"
+        unhappy: "退会"
       new:
         sign_up: "新規登録"
       destroyed: "さようなら！アカウントの削除に成功しました。またいつかお会いできると信じています。"

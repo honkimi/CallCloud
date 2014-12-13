@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   def index
     @user_tels = UserTel.where(:tel_id => @tel.id)
     @users = User.find(@user_tels.map(&:user_id))
+    @my_user_tel = UserTel.find_by_user_id_and_tel_id(current_user.id, @tel.id)
 
     render layout: false
   end

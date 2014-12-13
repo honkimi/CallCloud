@@ -4,9 +4,6 @@ class InvitesController < ApplicationController
   def index
     invites = Invite.joins(:user, :tel).where("to_email = ? and status = ?", current_user.email, 0)
 
-    # どうにかしたい...
-    # JOINしたのをそのまま突っ込めばいいだけなのに.
-    # 助けて〜
     res = []
     invites.each do |i|
       touple = {}
@@ -34,10 +31,10 @@ class InvitesController < ApplicationController
       invite.status = 1
       invite.save!
     end
-      flash[:notice] = "やった！組織の参加に成功しました。"
+      flash[:notice] = I18n.t("invite.success")
       redirect_to tels_url
     rescue => e
-      flash[:alert] = "おっと、組織の参加に失敗しました。"
+      flash[:alert] = I18n.t("invite.failed")
       redirect_to edit_invite_url(invite)
   end
 end

@@ -21,6 +21,9 @@ en:
     invited: "He is already invited to this group!"
     success: "Yay! Successfully invited."
     back: "Back"
+  invite:
+    success: "Yay! Successfully joined the organization."
+    failed: "Oops, Failed to join the organization."
   twilio:
     set_num: "Register Numbers"
     warn: "Select carefully since you cannot modify the numbers later."
