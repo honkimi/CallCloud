@@ -3,8 +3,8 @@ class MembersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @user_tels = UserTel.where(:tel_id => @tel.id)
-    @users = User.find(@user_tels.map(&:user_id))
+    @user_tels = UserTel.where(:tel_id => @tel.id).sort{|a, b| a.user_id <=> b.user_id }
+    @users = User.find(@user_tels.map(&:user_id)).sort{|a, b| a.id <=> b.id }
     @my_user_tel = UserTel.find_by_user_id_and_tel_id(current_user.id, @tel.id)
 
     render layout: false
