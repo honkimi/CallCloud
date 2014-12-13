@@ -32,9 +32,9 @@
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to t('tab.account'), edit_user_registration_path %></li>
-            <li><a href="javascript:void(0)"><%= t('tab.upgrade') %></a></li>
-            <li class="divider"></li>
             <li><%= link_to t("tab.signout"), destroy_user_session_path, method: :delete %></li>
+            <li class="divider"></li>
+            <li><a href="https://github.com/honkimi/CallCloud" target="_blank"><%= t('tab.code') %></a></li>
           </ul>
         </li>
       <% else %>

@@ -10,6 +10,7 @@ en:
     signout: "Sign out"
     signup: "Sign up"
     signin: "Sign in"
+    code: "Source Code"
   tel:
     save: "Save"
     create: "New Tel"
