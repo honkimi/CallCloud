@@ -117,12 +117,12 @@ var ImageView = function(x, y, size, name, group) {
 ImageView.prototype = {
   drawAdd: function(clicked) {
     this.draw('img/circle.png');
-    var addText = new TextView("+", this.x, this.y, this.name, 22,clicked , this.group, "black");
+    var addText = new TextView("＋", this.x, this.y, this.name, 22,clicked , this.group, "black");
     addText.drawText(clicked);
   },
   drawDel: function(clicked) {
     this.draw('img/circle_red.png');
-    var delText = new TextView("-", this.x, this.y, this.name, 22, clicked , this.group, "red");
+    var delText = new TextView("Ｘ", this.x, this.y, this.name, 22, clicked , this.group, "red");
     delText.drawText(clicked);
   }, 
   draw: function(imgUrl) {
