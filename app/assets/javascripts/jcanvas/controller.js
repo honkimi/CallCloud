@@ -2,7 +2,7 @@
 $.jCanvas.defaults.layer = true;
 
 // user settings
-number = $("#number").val(); // see box.js base_tel.
+number = "　" + $("#number").val(); // see box.js base_tel.
 base_tel = $("#base_tel_bumber").val(); // see box.js base_tel.
 first_msg = $("#first_msg").val();
 
