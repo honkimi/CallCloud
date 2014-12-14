@@ -6,7 +6,7 @@ This product is craeated in [Salesforce's Hack Challenge 2014 in Japan](http://j
 ## About
 - [Product](https://callcloud.herokuapp.com/)
 - [SlideShare](http://www.slideshare.net/honmadayo/call-cloud)
-- [YouTube](https://www.youtube.com/watch?v=2K2XR2cXl8w)
+- [YouTube](https://www.youtube.com/watch?v=UwkrJFkV1fA)
 
 ## Service
 無料で利用できます。  
@@ -20,7 +20,7 @@ This product is craeated in [Salesforce's Hack Challenge 2014 in Japan](http://j
 
 ## Short Terms
 
-- コールクラウドは[Salesforce's Hack Challenge 2014 in Japan](http://jp.force.com/devzone2014/hackchallenge)のために作られたものであり、ビジネスとして有料で提供しているものではございません。
+- コールクラウドは[Salesforce's Hack Challenge 2014](http://jp.force.com/devzone2014/hackchallenge)のために作られたものであり、ビジネスとして有料で提供しているものではございません。
 - コールクラウドは本ハックチャレンジ終了後、予告なくサービスを終了することができるものとします。ただし、その後別サービスとして同様のサービスを提供する場合があります。
 - 運営者が不正な自動オペレータが作成されたと判断した場合、ユーザー情報と共に該当の自動オペレータを予告なく削除できるものとします。
 
