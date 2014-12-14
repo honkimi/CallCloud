@@ -25,13 +25,15 @@ class TelsController < ApplicationController
   end
 
   def create
+    begin 
     @tel = Tel.new(tel_param)
     @tel.users << current_user
+    @tel.save!    
     current_user.user_tel(@tel.id).role = 30
-    if @tel.save && current_user.save
-      flash['notice'] = 'やった！新しい電話が生成されました。電話番号を選択してください。'
-      redirect_to new_tel_twilio_phone_url(@tel)
-    else 
+    current_user.save!
+    flash['notice'] = 'やった！新しい電話が生成されました。電話番号を選択してください。'
+    redirect_to new_tel_twilio_phone_url(@tel)
+    rescue => e
       render :new
     end
   end
