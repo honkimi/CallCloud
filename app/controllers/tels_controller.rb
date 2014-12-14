@@ -3,7 +3,7 @@ class TelsController < ApplicationController
   before_action :fetch_tel, only: [:show, :edit]
 
   def index
-    @tels = current_user.tels
+    @tels = current_user.tels.order("updated_at desc")
   end
 
   def show
