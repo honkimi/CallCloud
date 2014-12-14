@@ -8,7 +8,7 @@ class TelsController < ApplicationController
 
   def show
     if @tel.twilio_phone == nil
-      flash['notice'] = '電話番号を選択してください。'
+      flash['notice'] = I18n.t('tel.select')
       redirect_to new_tel_twilio_phone_url(@tel, redirected: true)
     else 
       @user_tel = current_user.user_tel(@tel.id)
@@ -26,20 +26,20 @@ class TelsController < ApplicationController
 
   def create
     begin 
-    @tel = Tel.new(tel_param)
-    @tel.users << current_user
-    @tel.save!    
-    current_user.user_tel(@tel.id).role = 30
-    current_user.save!
-    flash['notice'] = 'やった！新しい電話が生成されました。電話番号を選択してください。'
-    redirect_to new_tel_twilio_phone_url(@tel)
+      @tel = Tel.new(tel_param)
+      @tel.users << current_user
+      @tel.save!
+      usertel = current_user.user_tel(@tel.id)
+      usertel.role = 30
+      usertel.save!
+      flash['notice'] = I18n.t('tel.created')
+      redirect_to new_tel_twilio_phone_url(@tel)
     rescue => e
       render :new
     end
   end
 
   def update
-    p params
     @tel = Tel.find(params[:id])
     if @tel.update_attributes(tel_param)
       render json: @tel, status: 200
